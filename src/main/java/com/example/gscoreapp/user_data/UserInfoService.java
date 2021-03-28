@@ -24,8 +24,8 @@ public class UserInfoService {
         System.out.println("User information added");
     }
 
-    public void getUser(Integer id){
-        userInfoRepository.findById(id);
+    public UserInfo getUser(String username){
+        return userInfoRepository.findByUsername(username);
     }
 
     public void updateUser(int id, UserInfo userInfo){

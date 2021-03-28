@@ -45,5 +45,10 @@ public class UserInfoController {
         return "HI";
     }
 
+    @GetMapping("/getUserInfo/{username}")
+    public UserInfo getUserInfo(@PathVariable String username){
+        return userInfoService.getUser(username);
+    }
+
 }
 

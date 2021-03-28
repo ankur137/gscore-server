@@ -5,14 +5,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity(name = "git_user_basic_info")
+@Entity(name = "github_user_basic_info")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserInfo {
     @Id
     private int uid;
-    private String login;
+    private String username;
     private String name;
     private long gid;
     private String avatar_url;
@@ -27,7 +26,7 @@ public class UserInfo {
 
     public UserInfo(@JsonProperty("id") int gid,
                     @JsonProperty("name") String name, @JsonProperty("avatar_url") String avatar_url,
-                    @JsonProperty("login") String login, @JsonProperty("followers") int followers,
+                    @JsonProperty("login") String username, @JsonProperty("followers") int followers,
                     @JsonProperty("following") int following, @JsonProperty("location") String location,
                     @JsonProperty("created_at") String created_at, @JsonProperty("updated_at") String updated_at,
                     @JsonProperty("public_repos") int public_repos,
@@ -36,7 +35,7 @@ public class UserInfo {
 //                    int following, String location, String created_at, String updated_at, int public_repos,
 //                    int public_gists) {
         this.uid = uid;
-        this.login = login;
+        this.username = username;
         this.name = name;
         this.gid = gid;
         this.avatar_url = avatar_url;
@@ -61,12 +60,12 @@ public class UserInfo {
         this.uid = uid;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLogin(String username) {
-        this.login= login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getName() {

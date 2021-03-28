@@ -15,7 +15,7 @@ public class UserRepoInfoService {
     UserInfoRepository userInfoRepository;
 
     public UserRepoInfo getAllUserRepos(String username){
-        UserInfo userInfo = userInfoRepository.findByLogin(username);
+        UserInfo userInfo = userInfoRepository.findByUsername(username);
         return userRepoInfoRepository.findUserRepoInfoByUid(userInfo.getUid());
     }
 }
