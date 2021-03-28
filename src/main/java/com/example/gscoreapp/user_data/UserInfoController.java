@@ -40,10 +40,10 @@ public class UserInfoController {
         userInfoService.addUser(user);
     }
 
-//    @GetMapping("/test")
-//    public String hi() {
-//        return "HI";
-//    }
+    @GetMapping("/test")
+    public String hi() {
+        return "HI";
+    }
 
 }
 
