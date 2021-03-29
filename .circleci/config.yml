@@ -9,9 +9,9 @@ jobs: # a collection of steps
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-        environment:
-          FLASK_CONFIG: testing
-          TEST_DATABASE_URL: postgresql://ubuntu@localhost/circle_test?sslmode=disable
+#        environment:
+#          FLASK_CONFIG: testing
+#          TEST_DATABASE_URL: postgresql://ubuntu@localhost/circle_test?sslmode=disable
 #      - image: circleci/postgres:9.6.5-alpine-ram
 #        auth:
 #          username: $DOCKERHUB_USERNAME
