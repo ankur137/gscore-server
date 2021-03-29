@@ -23,5 +23,4 @@ public class UserRepoInfo {
     private int stargazers_count;
     private int watchers;
     private int open_issues;
-    //build trigger
 }
