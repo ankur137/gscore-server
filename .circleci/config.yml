@@ -6,6 +6,20 @@ jobs: # a collection of steps
 
     docker: # run the steps with Docker
       - image: circleci/openjdk:11-stretch # ...with this image as the primary container; this is where all `steps` will run
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+        environment:
+          FLASK_CONFIG: testing
+          TEST_DATABASE_URL: postgresql://ubuntu@localhost/circle_test?sslmode=disable
+#      - image: circleci/postgres:9.6.5-alpine-ram
+#        auth:
+#          username: $DOCKERHUB_USERNAME
+#          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+#        environment:
+#          POSTGRES_USER: ubuntu
+#          POSTGRES_DB: circle_test
+#          POSTGRES_PASSWORD: ""
 
     steps: # a collection of executable commands
 
@@ -32,3 +46,10 @@ jobs: # a collection of steps
           # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
           path: target/gscore-0.0.1-SNAPSHOT.jar
       # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
+  deploy:
+    steps:
+      - checkout
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
