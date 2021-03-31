@@ -24,7 +24,7 @@ alter table github_user_basic_info alter column created_at type varchar(50);
 
 alter table github_user_basic_info alter column updated_at type varchar(50);
 
-alter table github_user_basic_info alter column uid type SERIAL;
+alter table github_user_basic_info alter column uid type TEXT;
 
 alter table github_user_basic_info add primary key (uid);
 
