@@ -40,14 +40,10 @@ public class UserInfoController {
         userInfoService.addUser(user);
     }
 
-    @GetMapping("/test")
-    public String hi() {
-        return "HI";
-    }
-
-    @GetMapping("/getUserInfo/{username}")
+    @GetMapping("/getuserinfo/{username}")
     public UserInfo getUserInfo(@PathVariable String username){
-        return userInfoService.getUser(username);
+        UserInfo tes = userInfoService.getUser(username);
+        return tes;
     }
 
 }
