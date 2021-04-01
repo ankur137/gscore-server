@@ -28,7 +28,7 @@ public class UserInfoController {
     @RequestMapping("/gituser/{username}")
     public void addUser(@PathVariable String username) throws ExecutionException, InterruptedException, JsonProcessingException {
         System.out.println("Api hit");
-        HttpRequest req = HttpRequest.newBuilder(URI.create("https://api.github.com/users/" + username))
+        HttpRequest req = HttpRequest.newBuilder(URI.create("https://api.github.com/users/" + username)).setHeader("Authorization","token ed6128f8fbe95ad2fd353a7cbd9b50c7da17a866")
                 .GET().build();
 
         CompletableFuture<HttpResponse<String>> response = client.sendAsync(req, HttpResponse.BodyHandlers.ofString());
