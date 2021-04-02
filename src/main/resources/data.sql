@@ -1,5 +1,5 @@
 CREATE TABLE github_user_basic_info (
-                                        uid integer NOT NULL,
+                                        uid varchar(20) NOT NULL,
                                         username varchar(20) NOT NULL,
                                         "name" varchar(30) NULL,
                                         gid integer NOT NULL,
@@ -31,21 +31,20 @@ alter table github_user_basic_info add primary key (uid);
 commit;
 
 CREATE TABLE github_user_repo (
-        urid integer primary key ,
-        uid integer,
+
+        uid varchar(20) primary key,
+        repoName varchar(50),
+        user_ID varchar(20),
         gid integer,
-        is_forked BIT,
         commits integer ,
         pulls integer,
-        releases integer,
-        issues integer,
         contributors integer,
         size integer,
         forks integer,
         stargazers_count integer,
         watchers integer,
         open_issues integer,
-        foreign key (uid) REFERENCES  github_user_basic_info(uid)
+        foreign key (user_ID) REFERENCES  github_user_basic_info(uid)
 );
 
 CREATE TABLE github_user_repo_code(
