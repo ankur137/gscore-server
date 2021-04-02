@@ -6,5 +6,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepoInfoRepository extends CrudRepository<UserRepoInfo, Integer> {
-    public UserRepoInfo findUserRepoInfoByUid(int uid);
+    public UserRepoInfo findUserRepoInfoByUid(String uid);
+
+
 }
+
+
